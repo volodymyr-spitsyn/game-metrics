@@ -1,19 +1,22 @@
-# configuring the SQLAlchemy 2.0 engine (create_async_engine), the session factory (async_sessionmaker), and the base class for models (DeclarativeBase).
+"""
+Database core module.
+Configures the SQLAlchemy 2.0 async engine, session factory, and DeclarativeBase.
+"""
 
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 from app.core.config import get_settings
 
-# Получаем настройки через синглтон
+# Retrieve settings via a singleton
 settings = get_settings()
 
-# Создаем единый асинхронный движок базы данных
+# Creating a unified asynchronous database engine
 engine = create_async_engine(settings.DATABASE_URL, echo=True)
 
-# Создаем фабрику сессий (class_ по умолчанию AsyncSession, указывать DeclarativeBase здесь не нужно!)
+# Create a session factory (defaults to AsyncSession)
 SessionMaker = async_sessionmaker(engine, expire_on_commit=False)
 
-# Базовый класс для будущих ORM-моделей (таблиц)
+
+# Base class for future ORM models (tables)
 class Base(DeclarativeBase):
     pass
-

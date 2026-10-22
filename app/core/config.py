@@ -1,10 +1,16 @@
-# application settings and PostgreSQL connection parameters from .env file (pydantic settings)
+"""
+Application configuration module.
+Manages environment variables and settings using Pydantic BaseSettings.
+"""
+
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file= ".env" )
+    model_config = SettingsConfigDict(env_file=".env")
     DATABASE_URL: str
+
 
 @lru_cache
 def get_settings() -> Settings:
