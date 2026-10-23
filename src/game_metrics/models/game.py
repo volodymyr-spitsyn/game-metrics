@@ -7,7 +7,7 @@ from datetime import date
 from sqlalchemy import String, Text, Date
 from sqlalchemy.orm import Mapped, mapped_column
 
-from app.core.database import Base
+from src.game_metrics.core.database import Base
 
 
 class GameModel(Base):
