@@ -3,8 +3,8 @@ services:
     image: postgres:15-alpine
     container_name: gamemetrics_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
       POSTGRES_DB: gamemetrics
     ports:
       - "5432:5432"
