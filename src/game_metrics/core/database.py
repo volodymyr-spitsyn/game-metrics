@@ -7,6 +7,8 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 from src.game_metrics.core.config import get_settings
 
+# TODO: research later
+
 # Retrieve settings via a singleton
 settings = get_settings()
 
